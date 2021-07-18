@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "A class based environment variables accessor with validation",
   "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/danlopes-arc/safenv/issues"
   },
-  "homepage": "https://github.com/danlopes-arc/safenv#readme"
+  "homepage": "https://github.com/danlopes-arc/safenv#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
