@@ -1,3 +1,3 @@
-export function log(text: string): void {
-  console.log(text)
+export function greet(text: string): string {
+  return `Hello, ${text}`
 }
