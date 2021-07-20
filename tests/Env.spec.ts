@@ -20,12 +20,22 @@ class TestEnv {
   TYPE?: string
 }
 
+const originalProcessEnv = {...process.env}
+
+beforeEach(() => {
+  process.env = {...originalProcessEnv}
+})
+
+const validVariables = {
+  DB_NAME: 'test-name',
+  PORT: '3000',
+}
+
 describe('constructor', () => {
   it('should create if valid', function () {
     process.env = {
       ...process.env,
-      DB_NAME: 'test-name',
-      PORT: '3000',
+      ...validVariables
     }
     expect(() => new Env(TestEnv)).not.toThrowError()
   });
@@ -53,8 +63,7 @@ describe('all method', () => {
   it('should populate class correctly', function () {
     process.env = {
       ...process.env,
-      DB_NAME: 'test-name',
-      PORT: '3000',
+      ...validVariables
     }
 
     const env = new Env(TestEnv)
@@ -71,8 +80,7 @@ describe('all method', () => {
   it('should return a copy', function () {
     process.env = {
       ...process.env,
-      DB_NAME: 'test-name',
-      PORT: '3000',
+      ...validVariables
     }
 
     const env = new Env(TestEnv)
@@ -87,8 +95,7 @@ describe('get method', () => {
   it('should return correct value', function () {
     process.env = {
       ...process.env,
-      DB_NAME: 'test-name',
-      PORT: '3000',
+      ...validVariables
     }
 
     const env = new Env(TestEnv)
