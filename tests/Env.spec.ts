@@ -67,6 +67,20 @@ describe('all method', () => {
 
     expect(all).toEqual(expected)
   });
+
+  it('should return a copy', function () {
+    process.env = {
+      ...process.env,
+      DB_NAME: 'test-name',
+      PORT: '3000',
+    }
+
+    const env = new Env(TestEnv)
+    const firstAll = env.all()
+    const secondAll = env.all()
+
+    expect(firstAll).not.toBe(secondAll)
+  });
 })
 
 //// all

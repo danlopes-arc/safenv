@@ -24,7 +24,7 @@ export class Env<T extends Record<string, any>> {
   }
 
   all(): T {
-    return this.environment;
+    return {...this.environment};
   }
 
   get<K extends keyof T>(key: K): T[K] {
