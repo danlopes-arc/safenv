@@ -49,9 +49,29 @@ describe('constructor', () => {
   });
 })
 
+describe('all method', () => {
+  it('should populate class correctly', function () {
+    process.env = {
+      ...process.env,
+      DB_NAME: 'test-name',
+      PORT: '3000',
+    }
+
+    const env = new Env(TestEnv)
+    const all = env.all()
+
+    const expected = {
+      DB_NAME: 'test-name',
+      PORT: 3000,
+    }
+
+    expect(all).toEqual(expected)
+  });
+})
+
 //// all
 // should populate class correctly
-// should not have extra properties
+// should return a copy
 
 //// get
 // should return correct value
