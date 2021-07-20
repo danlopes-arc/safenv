@@ -1,6 +1,6 @@
 {
-  "name": "safenv",
-  "version": "1.0.0",
+  "name": "@danlopes-arc/safenv",
+  "version": "0.1.0",
   "description": "A class based environment variables accessor with validation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
