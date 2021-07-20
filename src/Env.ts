@@ -28,6 +28,6 @@ export class Env<T extends Record<string, any>> {
   }
 
   get<K extends keyof T>(key: K): T[K] {
-    return null as any
+    return this.environment[key]
   }
 }

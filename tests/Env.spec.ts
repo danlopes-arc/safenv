@@ -83,9 +83,22 @@ describe('all method', () => {
   });
 })
 
-//// all
-// should populate class correctly
-// should return a copy
+describe('get method', () => {
+  it('should return correct value', function () {
+    process.env = {
+      ...process.env,
+      DB_NAME: 'test-name',
+      PORT: '3000',
+    }
 
-//// get
-// should return correct value
+    const env = new Env(TestEnv)
+
+    const dbName = env.get('DB_NAME')
+    const port = env.get('PORT')
+    const type = env.get('TYPE')
+
+    expect(dbName).toBe('test-name')
+    expect(port).toBe(3000)
+    expect(type).not.toBeDefined()
+  });
+})
