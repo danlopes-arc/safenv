@@ -5,3 +5,6 @@ import {EnvManager} from "./EnvManager";
 export function env<T extends Record<string, any>>(envClass: ClassConstructor<T>): Env<T> {
   return EnvManager.getEnv(envClass)
 }
+
+export {Env} from './Env'
+export {EnvManager} from './EnvManager'
