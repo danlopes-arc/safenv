@@ -62,4 +62,14 @@ describe('getEnv()', () => {
 
     expect(firstTestEnv).toBe(secondTestEnv)
   });
-})
+});
+
+describe('clear()', () => {
+  it('should should clear envs', function () {
+    const firstTestEnv = EnvManager.getEnv(TestEnv1)
+    EnvManager.clear()
+    const secondTestEnv = EnvManager.getEnv(TestEnv1)
+
+    expect(firstTestEnv).not.toBe(secondTestEnv)
+  });
+});

@@ -13,4 +13,8 @@ export class EnvManager {
     this.envs.set(envClass, env);
     return env;
   }
+
+  static clear(): void {
+    this.envs.clear()
+  }
 }
