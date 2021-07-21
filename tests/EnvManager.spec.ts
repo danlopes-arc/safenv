@@ -34,6 +34,7 @@ const validVariables = {
 }
 
 beforeEach(() => {
+  EnvManager.clear()
   process.env = {
     ...originalProcessEnv,
     ...validVariables
@@ -73,3 +74,16 @@ describe('clear()', () => {
     expect(firstTestEnv).not.toBe(secondTestEnv)
   });
 });
+
+describe('load()', () => {
+  it('should load classes', function () {
+    EnvManager.load(TestEnv1)
+    process.env.DB_NAME = 'other-name'
+    const testEnv1 = EnvManager.getEnv(TestEnv1)
+
+    expect(testEnv1.all()).toEqual({
+      DB_NAME: 'test-name',
+      PORT: 3000,
+    })
+  });
+})

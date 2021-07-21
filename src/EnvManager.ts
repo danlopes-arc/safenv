@@ -5,16 +5,22 @@ export class EnvManager {
   static envs = new Map<any, Env<any>>()
 
   static getEnv<T extends Record<string, any>>(envClass: ClassConstructor<T>): Env<T> {
-    let env = this.envs.get(envClass);
-    if (env) {
-      return env as Env<T>;
-    }
-    env = new Env(envClass);
-    this.envs.set(envClass, env);
-    return env;
+    this.load(envClass)
+    return this.envs.get(envClass)!;
   }
 
   static clear(): void {
     this.envs.clear()
+  }
+
+  static load(...envClasses: ClassConstructor<Record<string, any>>[]): void {
+    for (const envClass of envClasses) {
+      let env = this.envs.get(envClass);
+      if (env) {
+        break;
+      }
+      env = new Env(envClass);
+      this.envs.set(envClass, env);
+    }
   }
 }
