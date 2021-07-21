@@ -1,8 +1,9 @@
 import {ClassConstructor, plainToClass} from "class-transformer";
 import {validateSync} from "class-validator";
+import 'reflect-metadata'
 
 export class Env<T extends Record<string, any>> {
-  private environment: T;
+  private readonly environment: T;
 
   constructor(envClass: ClassConstructor<T>) {
     const environment = plainToClass(envClass, process.env, {

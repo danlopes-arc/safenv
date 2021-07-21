@@ -1,4 +1,3 @@
-import 'reflect-metadata'
 import {Expose} from "class-transformer";
 import {IsInt, IsNumber, IsString} from "class-validator";
 import {env} from '../src'

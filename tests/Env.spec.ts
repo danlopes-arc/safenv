@@ -1,7 +1,6 @@
 import {IsInt, IsNotEmpty, IsNumber, IsOptional, IsString} from "class-validator";
 import {Env} from "../src/Env";
 import {Expose} from "class-transformer";
-import 'reflect-metadata'
 
 class TestEnv {
   @Expose()
